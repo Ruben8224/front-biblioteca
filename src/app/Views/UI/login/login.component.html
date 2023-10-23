@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../login/login.component.scss">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="inner">
+      <div class="image-holder">
+        <img src="https://firebasestorage.googleapis.com/v0/b/calculadora-93291.appspot.com/o/img%2Flance-reis-xd8ZoLQZ1G4-unsplash.jpg?alt=media&token=77252b41-5e59-4e6e-bb75-2126ae4f57bc"
+        alt="img">
+        <!-- Aquí puedes agregar una imagen si deseas -->
+      </div>
+      <form>
+        <h3>Login Cuenta</h3>
+        <p>Ingresa los datos solicitados</p>
+        <div class="form-group">
+          <div class="form-wrapper">
+            <i class="fa fa-user-circle"></i>
+            <input class="form-control" id="txt-input" type="email" placeholder="@UsuarioDemo: admin" [value]="username" (input)="updateUsername($event)" required />
+          </div>
+
+          <div class="form-wrapper">
+            <i class="fa fa-key"></i>
+            <input class="form-control" type="password" id="pwd" name="password" placeholder="@ContraseñaDemo: password" [value]="password" (input)="updatePassword($event)" required />
+            <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="togglePasswordVisibility()"></i>
+          </div>
+        </div>
+
+        <button class="login-button" (click)="IniciarSesion()" routerLink="Sistema/Inicio">Iniciar Sesión<i class="fa fa-user-plus" aria-hidden="true"></i></button>
+
+        <p *ngIf="loginFailed" class="error-message">Credenciales inválidas. Inténtalo de nuevo.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function togglePasswordVisibility() {
+      var p = document.getElementById("pwd");
+      if (p.type === "password") {
+        p.type = "text";
+      } else {
+        p.type = "password";
+      }
+    }
+  </script>
+</body>
+</html>
